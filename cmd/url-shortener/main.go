@@ -20,7 +20,10 @@ func main() {
 
 	fmt.Println(cfg)
 
-	// TODO: init logger: slog
+	log := setupLogger(cfg.Env)
+
+	log.Info("starting url-shortener", slog.String("env", cfg.Env))
+	log.Debug("debug messages are enabled")
 
 	// TODO: init storage: sqlite
 
